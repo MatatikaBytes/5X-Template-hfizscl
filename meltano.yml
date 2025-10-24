@@ -6,6 +6,10 @@ environments:
 - name: staging
 - name: prod
 plugins:
+  extractors:
+  - name: tap-postgres
+    variant: matatika
+    pip_url: git+https://github.com/Matatika/pipelinewise-tap-postgres.git@v1.0.0
   loaders:
   - name: target-postgres
     variant: matatika
@@ -13,6 +17,12 @@ plugins:
   - name: target-snowflake
     variant: matatika
     pip_url: git+https://github.com/Matatika/target-snowflake--meltanolabs.git@v0.16.3-1
+  - name: target-bigquery
+    variant: matatika
+    pip_url: git+https://github.com/Matatika/target-bigquery.git@v1.0
+  - name: target-redshift
+    variant: ticketswap
+    pip_url: git+https://github.com/TicketSwap/target-redshift.git
   transformers:
   - name: dbt
     variant: dbt-labs
